@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-module Docx
-  class Style
-    def initialize(node)
-      @node = node
-    end
-    attr_reader :node
+require 'docx/document_node'
 
+module Docx
+  class Style < DocumentNode
     def name
       node['w:val']
     end

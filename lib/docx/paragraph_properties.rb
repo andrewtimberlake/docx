@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
+require 'docx/document_node'
 require 'docx/style'
 
 module Docx
-  class ParagraphProperties
-    def initialize(node)
-      @node = node
-    end
-    attr_reader :node
-
+  class ParagraphProperties < DocumentNode
     def style
       Style.new(node.xpath('./w:pStyle').first)
     end
