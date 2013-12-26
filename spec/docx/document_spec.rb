@@ -8,5 +8,13 @@ module Docx
       document = Document.open(fixture('basic.docx'))
       expect(document).to be_a(Document)
     end
+
+    let(:document) { Document.open(fixture('basic.docx')) }
+
+    context '.paragraphs' do
+      it "returns the correct number of paragraphs" do
+        expect(document.paragraphs.size).to eq(9)
+      end
+    end
   end
 end
