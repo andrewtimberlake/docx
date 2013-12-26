@@ -14,6 +14,7 @@ module Docx
     context '.paragraphs' do
       it "returns the correct number of paragraphs" do
         expect(document.paragraphs.size).to eq(9)
+        expect(document.paragraphs.first).to be_a(Paragraph)
       end
     end
   end

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'zip'
 require 'nokogiri'
+require 'docx/paragraph'
 
 module Docx
   class Document
@@ -10,7 +11,9 @@ module Docx
     attr_reader :path
 
     def paragraphs
-      document.xpath('//w:body/w:p')
+      document.xpath('//w:body/w:p').map {|node|
+        Paragraph.new(node)
+      }
     end
 
     def self.open(path)
