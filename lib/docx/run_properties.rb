@@ -37,6 +37,15 @@ module Docx
       end
     end
 
+    def font
+      element = node.xpath('./w:rFonts').first
+      if element
+        element['w:ascii']
+      else
+        style.send(:font)
+      end
+    end
+
     private
     def switchable_value(ref, method_id)
       element = node.xpath(ref).first

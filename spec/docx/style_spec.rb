@@ -24,7 +24,7 @@ module Docx
       context "when set on the run" do
         let(:run) { document.paragraphs[1].runs[1] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.bold?).to be_true
         end
       end
@@ -32,7 +32,7 @@ module Docx
       context "when set in the paragraph style" do
         let(:run) { document.paragraphs[2].runs[0] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.bold?).to be_true
         end
       end
@@ -40,7 +40,7 @@ module Docx
       context "when set in the run style" do
         let(:run) { document.paragraphs[3].runs[1] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.bold?).to be_true
         end
       end
@@ -48,7 +48,7 @@ module Docx
       context "when turned off in the run" do
         let(:run) { document.paragraphs[2].runs[1] }
 
-        it "should return false" do
+        it "returns false" do
           expect(run.properties.bold?).to be_false
         end
       end
@@ -58,7 +58,7 @@ module Docx
       context "when set on the run" do
         let(:run) { document.paragraphs[1].runs[3] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.italic?).to be_true
         end
       end
@@ -66,7 +66,7 @@ module Docx
       context "when set in the paragraph style" do
         let(:run) { document.paragraphs[3].runs[0] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.italic?).to be_true
         end
       end
@@ -74,7 +74,7 @@ module Docx
       context "when set in the run style" do
         let(:run) { document.paragraphs[2].runs[3] }
 
-        it "should return true" do
+        it "returns true" do
           expect(run.properties.italic?).to be_true
         end
       end
@@ -82,7 +82,7 @@ module Docx
       context "when turned off in the run" do
         let(:run) { document.paragraphs[3].runs[3] }
 
-        it "should return false" do
+        it "returns false" do
           expect(run.properties.italic?).to be_false
         end
       end
@@ -92,7 +92,7 @@ module Docx
       context "when set on the run" do
         let(:run) { document.paragraphs[4].runs[3] }
 
-        it "should return true" do
+        it "returns the size" do
           expect(run.properties.font_size).to eq(28)
         end
       end
@@ -100,7 +100,7 @@ module Docx
       context "when set in the paragraph style" do
         let(:run) { document.paragraphs[4].runs[0] }
 
-        it "should return true" do
+        it "returns the size" do
           expect(run.properties.font_size).to eql(32)
         end
       end
@@ -108,8 +108,34 @@ module Docx
       context "when set in the run style" do
         let(:run) { document.paragraphs[4].runs[1] }
 
-        it "should return true" do
+        it "returns the size" do
           expect(run.properties.font_size).to eql(24)
+        end
+      end
+    end
+
+    context '#font' do
+      context "when set on the run" do
+        let(:run) { document.paragraphs[4].runs[3] }
+
+        it "returns the font name" do
+          expect(run.properties.font).to eq('Times New Roman')
+        end
+      end
+
+      context "when set in the paragraph style" do
+        let(:run) { document.paragraphs[4].runs[0] }
+
+        it "returns the font name" do
+          expect(run.properties.font).to eql('Arial')
+        end
+      end
+
+      context "when set in the run style" do
+        let(:run) { document.paragraphs[4].runs[1] }
+
+        it "returns the font name" do
+          expect(run.properties.font).to eql('Times New Roman')
         end
       end
     end

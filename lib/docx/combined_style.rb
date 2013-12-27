@@ -7,7 +7,7 @@ module Docx
     end
     attr_reader :run_style, :paragraph_style
 
-    [:bold?, :italic?, :font_size].each do |method_id|
+    [:bold?, :italic?, :font_size, :font].each do |method_id|
       define_method method_id do
         run_style.send(method_id) || paragraph_style.send(method_id)
       end

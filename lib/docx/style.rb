@@ -19,7 +19,7 @@ module Docx
       document.styles[style_id]
     end
 
-    [:bold?, :italic?, :font_size].each do |method_id|
+    [:bold?, :italic?, :font_size, :font].each do |method_id|
       define_method method_id do
         run_properties.send(method_id)
       end
