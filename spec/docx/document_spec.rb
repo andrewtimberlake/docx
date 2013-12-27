@@ -17,5 +17,12 @@ module Docx
         expect(document.paragraphs.first).to be_a(Paragraph)
       end
     end
+
+    context '.styles' do
+      it "returns the correct number of styles" do
+        expect(document.styles.size).to eq(6)
+        expect(document.styles.first).to be_a(Style)
+      end
+    end
   end
 end

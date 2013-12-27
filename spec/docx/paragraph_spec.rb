@@ -9,7 +9,7 @@ module Docx
     let(:paragraph) { document.paragraphs[2] }
 
     it "has properties" do
-      expect(paragraph.properties.style.name).to eq('style0')
+      expect(paragraph.properties.style.id).to eq('style0')
     end
 
     it "has runs" do

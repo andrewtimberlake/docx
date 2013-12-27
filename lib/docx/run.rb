@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+require 'docx/paragraph_node'
+
 module Docx
-  class Run < DocumentNode
+  class Run < ParagraphNode
     def to_s
       buffer = []
       node.xpath('./w:t|w:tab|w:br').each do |node|

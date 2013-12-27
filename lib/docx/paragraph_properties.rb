@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-require 'docx/document_node'
+require 'docx/paragraph_node'
 require 'docx/style'
 
 module Docx
-  class ParagraphProperties < DocumentNode
+  class ParagraphProperties < ParagraphNode
     def style
-      Style.new(node.xpath('./w:pStyle').first)
+      style_id = node.xpath('./w:pStyle').first['w:val']
+      document.styles[style_id]
     end
   end
 end

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 module Docx
   class DocumentNode
-    def initialize(node)
+    def initialize(node, document)
       @node = node
+      @document = document
     end
     attr_reader :node
 
@@ -13,5 +14,8 @@ module Docx
     def inspect_node
       node.to_s
     end
+
+    private
+    attr_reader :document
   end
 end

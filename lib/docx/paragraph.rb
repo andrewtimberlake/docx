@@ -6,12 +6,16 @@ require 'docx/run'
 module Docx
   class Paragraph < DocumentNode
     def properties
-      ParagraphProperties.new(node.xpath('./w:pPr'))
+      ParagraphProperties.new(node.xpath('./w:pPr').first, document, self)
+    end
+
+    def style
+      properties.style
     end
 
     def runs
       node.xpath('./w:r').map {|node|
-        Run.new(node)
+        Run.new(node, document, self)
       }
     end
 
