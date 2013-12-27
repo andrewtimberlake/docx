@@ -6,10 +6,10 @@ require 'docx/style'
 module Docx
   describe Style do
     let(:document) { Document.open(fixture('styled.docx')) }
-    let(:style) { document.styles['style23'] }
+    let(:style) { document.styles['style24'] }
 
     it "returns the style id" do
-      expect(style.id).to eq('style23')
+      expect(style.id).to eq('style24')
     end
 
     it "returns the style name" do
@@ -17,7 +17,7 @@ module Docx
     end
 
     it "returns the inherited style" do
-      expect(style.based_on).to eq(document.styles['style16'])
+      expect(style.based_on).to eq(document.styles['style17'])
     end
 
     context 'bold?' do

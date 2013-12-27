@@ -12,7 +12,7 @@ module Docx
       let(:properties) { RunProperties.new(node, document, paragraph) }
 
       context "for an direct property" do
-        let(:node) { document.styles['style23'].node.xpath('./w:rPr').first }
+        let(:node) { document.styles['style24'].node.xpath('./w:rPr').first }
 
         it "should return true" do
           expect(properties.bold?).to be_true

@@ -6,7 +6,7 @@ require 'docx/run'
 module Docx
   class Paragraph < DocumentNode
     def properties
-      ParagraphProperties.new(node.xpath('./w:pPr').first, document, self)
+      @properties ||= ParagraphProperties.new(node.xpath('./w:pPr').first, document, self)
     end
 
     def style

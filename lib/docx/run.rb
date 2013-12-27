@@ -3,6 +3,10 @@ require 'docx/paragraph_node'
 
 module Docx
   class Run < ParagraphNode
+    def properties
+      RunProperties.new(node.xpath('./w:rPr').first, document, paragraph)
+    end
+
     def to_s
       buffer = []
       node.xpath('./w:t|w:tab|w:br').each do |node|

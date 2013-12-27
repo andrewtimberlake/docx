@@ -21,6 +21,10 @@ module Docx
       run_properties.bold?
     end
 
+    def italic?
+      run_properties.italic?
+    end
+
     private
     def run_properties
       RunProperties.new(node.xpath('./w:rPr').first, document, nil)
