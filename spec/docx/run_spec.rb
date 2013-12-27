@@ -17,6 +17,16 @@ module Docx
       end
     end
 
+    context "#each_codepoint" do
+      let(:run) { Document.open(fixture('basic.docx')).paragraphs[2].runs.last }
+
+      it "returns the codepoints of all the text parts" do
+        cps = []
+        run.each_codepoint { |cp| cps << cp }
+        expect(cps).to eq(". \nCras at viverra dui, at aliquet est.\tClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.".codepoints)
+      end
+    end
+
     context '#style' do
       let(:run) { document.paragraphs[2].runs[3] }
 

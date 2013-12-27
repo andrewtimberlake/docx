@@ -9,17 +9,30 @@ module Docx
 
     def to_s
       buffer = []
+      each_text_part do |text|
+        buffer << text
+      end
+      buffer.join
+    end
+
+    def each_codepoint(&block)
+      each_text_part do |text|
+        text.each_codepoint(&block)
+      end
+    end
+
+    private
+    def each_text_part(&block)
       node.xpath('./w:t|w:tab|w:br').each do |node|
         case node.name
         when 't'
-          buffer << node.content
+          yield node.content
         when 'tab'
-          buffer << "\t"
+          yield "\t"
         when 'br'
-          buffer << "\n"
+          yield "\n"
         end
       end
-      buffer.join
     end
   end
 end
