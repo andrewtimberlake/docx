@@ -10,4 +10,7 @@ Gem::Specification.new do |s|
   s.require_path    = 'lib'
   # s.homepage      = 'http://rubygems.org/gems/...'
   s.license         = 'MIT'
+  s.add_runtime_dependency "nokogiri", ["~> 1.6.0"]
+  s.add_runtime_dependency "rubyzip", ["~> 1.0.0"]
+  s.add_development_dependency "rspec", ["~> 2.14.0"]
 end
