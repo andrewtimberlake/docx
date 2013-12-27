@@ -13,8 +13,6 @@ module Docx
           buffer << "\t"
         when 'br'
           buffer << "\n"
-        else
-          raise StandardError, "Unknown run element w:#{node.name}"
         end
       end
       buffer.join

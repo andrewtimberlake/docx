@@ -6,6 +6,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 $LOAD_PATH << File.expand_path(File.join(__dir__, '../lib'))
 require 'docx'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
