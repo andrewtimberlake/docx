@@ -28,12 +28,21 @@ module Docx
       switchable_value('./w:i', :italic?)
     end
 
+    def font_size
+      element = node.xpath('./w:sz').first
+      if element
+        element['w:val'].to_i
+      else
+        style.send(:font_size)
+      end
+    end
+
     private
     def switchable_value(ref, method_id)
       element = node.xpath(ref).first
       if element
         value = element['w:val']
-        return false if ['false', 'off'].include?(value)
+        return false if ['0', 'false', 'off'].include?(value)
         true
       else
         style.send(method_id)

@@ -13,16 +13,16 @@ module Docx
     end
 
     def based_on
-      style_id = node.xpath('./w:basedOn').first['w:val']
+      style_node = node.xpath('./w:basedOn').first
+      return nil unless style_node
+      style_id = style_node['w:val']
       document.styles[style_id]
     end
 
-    def bold?
-      run_properties.bold?
-    end
-
-    def italic?
-      run_properties.italic?
+    [:bold?, :italic?, :font_size].each do |method_id|
+      define_method method_id do
+        run_properties.send(method_id)
+      end
     end
 
     private
