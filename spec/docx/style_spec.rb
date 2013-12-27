@@ -25,7 +25,7 @@ module Docx
         let(:run) { document.paragraphs[1].runs[1] }
 
         it "returns true" do
-          expect(run.properties.bold?).to be_true
+          expect(run.style.bold?).to be_true
         end
       end
 
@@ -33,7 +33,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[0] }
 
         it "returns true" do
-          expect(run.properties.bold?).to be_true
+          expect(run.style.bold?).to be_true
         end
       end
 
@@ -41,7 +41,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[1] }
 
         it "returns true" do
-          expect(run.properties.bold?).to be_true
+          expect(run.style.bold?).to be_true
         end
       end
 
@@ -49,7 +49,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[1] }
 
         it "returns false" do
-          expect(run.properties.bold?).to be_false
+          expect(run.style.bold?).to be_false
         end
       end
     end
@@ -59,7 +59,7 @@ module Docx
         let(:run) { document.paragraphs[1].runs[3] }
 
         it "returns true" do
-          expect(run.properties.italic?).to be_true
+          expect(run.style.italic?).to be_true
         end
       end
 
@@ -67,7 +67,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[0] }
 
         it "returns true" do
-          expect(run.properties.italic?).to be_true
+          expect(run.style.italic?).to be_true
         end
       end
 
@@ -75,7 +75,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[3] }
 
         it "returns true" do
-          expect(run.properties.italic?).to be_true
+          expect(run.style.italic?).to be_true
         end
       end
 
@@ -83,7 +83,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[3] }
 
         it "returns false" do
-          expect(run.properties.italic?).to be_false
+          expect(run.style.italic?).to be_false
         end
       end
     end
@@ -93,7 +93,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[3] }
 
         it "returns the size" do
-          expect(run.properties.font_size).to eq(28)
+          expect(run.style.font_size).to eq(28)
         end
       end
 
@@ -101,7 +101,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[0] }
 
         it "returns the size" do
-          expect(run.properties.font_size).to eql(32)
+          expect(run.style.font_size).to eql(32)
         end
       end
 
@@ -109,7 +109,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[1] }
 
         it "returns the size" do
-          expect(run.properties.font_size).to eql(24)
+          expect(run.style.font_size).to eql(24)
         end
       end
     end
@@ -119,7 +119,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[3] }
 
         it "returns the font name" do
-          expect(run.properties.font).to eq('Times New Roman')
+          expect(run.style.font).to eq('Times New Roman')
         end
       end
 
@@ -127,7 +127,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[0] }
 
         it "returns the font name" do
-          expect(run.properties.font).to eql('Arial')
+          expect(run.style.font).to eql('Arial')
         end
       end
 
@@ -135,7 +135,7 @@ module Docx
         let(:run) { document.paragraphs[4].runs[1] }
 
         it "returns the font name" do
-          expect(run.properties.font).to eql('Times New Roman')
+          expect(run.style.font).to eql('Times New Roman')
         end
       end
     end

@@ -22,13 +22,13 @@ module Docx
 
       context 'inherited from the paragraph' do
         it "returns the correct property" do
-          expect(run.properties.bold?).to be_true
+          expect(run.style.bold?).to be_true
         end
       end
 
       context 'embeddded in the run' do
         it "returns the correct property" do
-          expect(run.properties.italic?).to be_true
+          expect(run.style.italic?).to be_true
         end
       end
     end

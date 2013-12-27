@@ -3,7 +3,7 @@ require 'docx/paragraph_node'
 
 module Docx
   class Run < ParagraphNode
-    def properties
+    def style
       RunProperties.new(node.xpath('./w:rPr').first, document, paragraph)
     end
 
