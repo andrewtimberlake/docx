@@ -23,7 +23,12 @@ module Docx
       it "returns the codepoints of all the text parts" do
         cps = []
         run.each_codepoint { |cp| cps << cp }
-        expect(cps).to eq(". \nCras at viverra dui, at aliquet est.\tClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.".codepoints)
+        expect(cps.pack('U*')).to eq(". \nCras at viverra dui, at aliquet est.\tClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.")
+      end
+
+      it "returns an enumerator if no block is given" do
+        enum = run.each_codepoint
+        expect(enum.next).to eq(46)
       end
     end
 

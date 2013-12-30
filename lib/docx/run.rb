@@ -16,8 +16,17 @@ module Docx
     end
 
     def each_codepoint(&block)
-      each_text_part do |text|
-        text.each_codepoint(&block)
+      enum = Enumerator.new do |y|
+        each_text_part do |text|
+          text.each_codepoint do |cp|
+            y << cp
+          end
+        end
+      end
+      if block_given?
+        enum.each(&block)
+      else
+        enum
       end
     end
 
