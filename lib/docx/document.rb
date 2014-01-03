@@ -2,6 +2,7 @@
 require 'zip'
 require 'nokogiri'
 require 'docx/paragraph'
+require 'docx/settings'
 require 'docx/style'
 require 'docx/style_set'
 
@@ -26,6 +27,10 @@ module Docx
                     }
                     styles
                   end
+    end
+
+    def settings
+      @settings ||= Settings.new(zipped_document('word/settings.xml'))
     end
 
     def self.open(path)

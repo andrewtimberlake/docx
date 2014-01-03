@@ -24,5 +24,11 @@ module Docx
         expect(document.styles.first).to be_a(Style)
       end
     end
+
+    context '.settings' do
+      it "returns the settings struct" do
+        expect(document.settings).to be_a(Settings)
+      end
+    end
   end
 end
