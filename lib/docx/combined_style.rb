@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require_relative 'null_style'
+
 module Docx
   class CombinedStyle
     def initialize(run_style, paragraph_style)
@@ -10,16 +12,6 @@ module Docx
     [:bold?, :italic?, :font_size, :font].each do |method_id|
       define_method method_id do
         run_style.send(method_id) || paragraph_style.send(method_id)
-      end
-    end
-
-    class NullStyle
-      def method_missing(method_id, *args, &block)
-        if method_id.to_s.chomp!('?')
-          false
-        else
-          nil
-        end
       end
     end
   end
