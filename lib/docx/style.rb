@@ -14,14 +14,14 @@ module Docx
 
     def based_on
       style_node = node.xpath('./w:basedOn').first
-      return nil unless style_node
+      return NullStyle.new unless style_node
       style_id = style_node['w:val']
       document.styles[style_id]
     end
 
     [:bold?, :italic?, :font_size, :font].each do |method_id|
       define_method method_id do
-        run_properties.send(method_id)
+        run_properties.send(method_id) || based_on.send(method_id)
       end
     end
 

@@ -46,6 +46,10 @@ module Docx
       end
     end
 
+    def based_on
+      style.based_on
+    end
+
     private
     def switchable_value(ref, method_id)
       element = node.xpath(ref).first

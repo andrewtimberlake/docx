@@ -139,5 +139,24 @@ module Docx
         end
       end
     end
+
+    context "inherited styles" do
+      let(:document) { Document.open(fixture('inherited_styles.docx')) }
+
+      it "delegates the style to the 'based_on' style" do
+        paragraph = document.paragraphs[1]
+        style = paragraph.style
+        expect(style.send(:run_properties).send(:font)).to be_nil
+        expect(style.font).to eq(style.based_on.font)
+      end
+
+      it "each run correctly produces a style" do
+        document.paragraphs.each do |paragraph|
+          paragraph.runs.each do |run|
+            expect(run.style.font).not_to be_nil
+          end
+        end
+      end
+    end
   end
 end
