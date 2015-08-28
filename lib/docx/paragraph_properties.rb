@@ -5,8 +5,15 @@ require 'docx/style'
 module Docx
   class ParagraphProperties < ParagraphNode
     def style
-      style_id = node.xpath('./w:pStyle').first['w:val']
-      document.styles[style_id]
+      unless style_nodes.empty?
+        style_id = style_nodes.first['w:val']
+        document.styles[style_id]
+      end
+    end
+
+    private
+    def style_nodes
+      node.xpath('./w:pStyle')
     end
   end
 end
