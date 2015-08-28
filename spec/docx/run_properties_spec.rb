@@ -15,7 +15,7 @@ module Docx
         let(:node) { document.styles['style26'].node.xpath('./w:rPr').first }
 
         it "should return true" do
-          expect(properties.bold?).to be_true
+          expect(properties.bold?).to be(true)
         end
       end
 
@@ -24,7 +24,7 @@ module Docx
         let(:node) { paragraph.runs[0].node.xpath('./w:rPr').first }
 
         it "should return true" do
-          expect(properties.bold?).to be_true
+          expect(properties.bold?).to be(true)
         end
       end
 
@@ -33,7 +33,7 @@ module Docx
         let(:node) { paragraph.runs[1].node.xpath('./w:rPr').first }
 
         it "should return false" do
-          expect(properties.bold?).to be_false
+          expect(properties.bold?).to be(false)
         end
       end
     end

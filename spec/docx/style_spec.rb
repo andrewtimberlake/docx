@@ -25,7 +25,7 @@ module Docx
         let(:run) { document.paragraphs[1].runs[1] }
 
         it "returns true" do
-          expect(run.style.bold?).to be_true
+          expect(run.style.bold?).to be(true)
         end
       end
 
@@ -33,7 +33,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[0] }
 
         it "returns true" do
-          expect(run.style.bold?).to be_true
+          expect(run.style.bold?).to be(true)
         end
       end
 
@@ -41,7 +41,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[1] }
 
         it "returns true" do
-          expect(run.style.bold?).to be_true
+          expect(run.style.bold?).to be(true)
         end
       end
 
@@ -49,7 +49,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[1] }
 
         it "returns false" do
-          expect(run.style.bold?).to be_false
+          expect(run.style.bold?).to be(false)
         end
       end
     end
@@ -59,7 +59,7 @@ module Docx
         let(:run) { document.paragraphs[1].runs[3] }
 
         it "returns true" do
-          expect(run.style.italic?).to be_true
+          expect(run.style.italic?).to be(true)
         end
       end
 
@@ -67,7 +67,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[0] }
 
         it "returns true" do
-          expect(run.style.italic?).to be_true
+          expect(run.style.italic?).to be(true)
         end
       end
 
@@ -75,7 +75,7 @@ module Docx
         let(:run) { document.paragraphs[2].runs[3] }
 
         it "returns true" do
-          expect(run.style.italic?).to be_true
+          expect(run.style.italic?).to be(true)
         end
       end
 
@@ -83,7 +83,7 @@ module Docx
         let(:run) { document.paragraphs[3].runs[3] }
 
         it "returns false" do
-          expect(run.style.italic?).to be_false
+          expect(run.style.italic?).to be(false)
         end
       end
     end
